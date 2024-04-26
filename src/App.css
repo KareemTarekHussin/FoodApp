@@ -1,10 +1,41 @@
-.auth-container{
+.auth-container {
     background-image: url(./assets/images/auth-bg.png);
 }
-.bg-overlay{
-background: linear-gradient(rgba(47,140,96,0.4),rgba(0,0,0,0.5));
 
-} 
-.auth-container .logofood{
+.bg-overlay {
+    background: linear-gradient(rgba(47, 140, 96, 0.4), rgba(0, 0, 0, 0.5));
+
+}
+
+.auth-container .logofood {
     width: 366px;
 }
+
+/* //SideBar */
+.sidebar-container .ps-sidebar-container {
+    background-color: #1F263E;
+    height: 100vh;
+    color: #fff;
+}
+
+.sidebar-container .ps-sidebar-container .ps-menu-button:hover {
+    background-color: rgba(47, 140, 96, 0.4);
+
+}
+
+/* //Header */
+.header-container {
+    background-image: url(./assets/images/header-bg-svg.svg);
+    background-size: cover;
+    color: #fff;
+}
+/* notfound */
+.notfound{
+    background-image: url(./assets/images/not-found-bg.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 100vh; 
+}
+
+.notfound h2{color: #009247;}
+.notfound button{height: 4rem;}
