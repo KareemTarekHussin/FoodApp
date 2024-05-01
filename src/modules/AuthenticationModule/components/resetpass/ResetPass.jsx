@@ -43,11 +43,11 @@ export default function ResetPass() {
               </p>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="input-group mb-3">
-                  <div className="input-group-prepend">
+                
                     <span className="input-group-text" id="basic-addon1">
-                      <i className="fa fa-mobile mb-3"></i>
+                      <i className="fa fa-mobile "></i>
                     </span>
-                  </div>
+                  
                   <input
                     type="text"
                     className="form-control"
@@ -58,11 +58,11 @@ export default function ResetPass() {
                 </div>
 
                 <div className="input-group mb-3">
-                  <div className="input-group-prepend">
+                
                     <span className="input-group-text" id="basic-addon1">
-                      <i className="fa fa-key mb-3"></i>
+                      <i className="fa fa-lock "></i>
                     </span>
-                  </div>
+                  
                   <input
                     type="text"
                     className="form-control"
@@ -71,11 +71,11 @@ export default function ResetPass() {
                   />
                 </div>
                 <div className="input-group mb-3">
-                  <div className="input-group-prepend">
+                
                     <span className="input-group-text" id="basic-addon1">
-                      <i className="fa fa-key"></i>
+                      <i className="fa fa-lock"></i>
                     </span>
-                  </div>
+                  
                   <input
                     type="text"
                     className="form-control"
@@ -84,11 +84,11 @@ export default function ResetPass() {
                   />
                 </div>
                 <div className="input-group mb-3">
-                  <div className="input-group-prepend">
+                
                     <span className="input-group-text" id="basic-addon1">
-                      <i className="fa fa-key"></i>
+                      <i className="fa fa-lock"></i>
                     </span>
-                  </div>
+                  
                   <input
                     type="text"
                     className="form-control"

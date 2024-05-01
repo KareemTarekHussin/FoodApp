@@ -43,11 +43,11 @@ export default function Forgetpass() {
                 </p>
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="input-group mb-3 my-5">
-                    <div className="input-group-prepend">
+                 
                       <span className="input-group-text" id="basic-addon1">
                         <i className="fa fa-mobile"></i>
                       </span>
-                    </div>
+                    
                     <input
                       type="text"
                       className="form-control"

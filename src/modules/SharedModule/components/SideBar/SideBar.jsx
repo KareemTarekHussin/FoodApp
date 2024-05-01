@@ -18,9 +18,9 @@ const toggleCollapse = ()=>{
 
   return (
     <div className="sidebar-container  rounded-end">
-      <Sidebar collapsed={isCollapse} className="border rounded-end">
+      <Sidebar  collapsed={isCollapse} className="border rounded-end vh-100">
         <Menu>
-          <MenuItem onClick={toggleCollapse}  className="my-2">
+          <MenuItem active="ps-active"  onClick={toggleCollapse}  className="my-2">
             <img src={toggler} alt="" />
           </MenuItem>
           <MenuItem
@@ -54,7 +54,7 @@ const toggleCollapse = ()=>{
           <MenuItem  className="my-2" icon={<i className="fa fa-unlock" aria-hidden="true"></i>}> Change Password</MenuItem>
           <MenuItem   className="my-2" icon={<i className="fa fa-right-from-bracket" aria-hidden="true"></i>}>
           
-            <button onClick={logout} className="btn btn-outline-success ">
+            <button onClick={logout} className="btn btn-outline-light ">
               Logout
             </button>
           </MenuItem>
