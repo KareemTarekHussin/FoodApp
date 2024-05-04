@@ -16,6 +16,8 @@ import { jwtDecode } from 'jwt-decode'
 import ProtectedRoute from './modules/SharedModule/components/ProtectedRoute/ProtectedRoute'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import RecipeData from './modules/RecipesModule/components/RecipeData/RecipeData'
+import VerifyAccount from './modules/AuthenticationModule/components/VerifyAccount/VerifyAccount'
 
 
 
@@ -43,6 +45,7 @@ let routes = createBrowserRouter([
     errorElement: <Notfound/>,
     children:[{path:"",element:<Dashboard/>}, 
     {path:"recipes",element:<RecipesList/>},
+    {path:"recipeData",element:<RecipeData/>},
     {path:"categories",element:<CategoriesList/>},
     {path:"users",element:<UsersList/>}
 
@@ -57,7 +60,8 @@ let routes = createBrowserRouter([
     {path:"login",element:<Login saveLoginData={saveLoginData}/>},
     {path:"register",element:<Register/>},
     {path:"forgetpass",element:<Forgetpass/>},
-    {path:"resetpass",element:<ResetPass/>}
+    {path:"resetpass",element:<ResetPass/>},
+    {path:"verify",element:<VerifyAccount/>}
 
     ]
 

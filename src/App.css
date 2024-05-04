@@ -3,12 +3,17 @@
 }
 
 .bg-overlay {
-    background: linear-gradient(rgba(47, 140, 96, 0.4), rgba(0, 0, 0, 0.5));
+    background: linear-gradient(rgba(47, 140, 96, 0.4), rgba(0, 0, 0, 0.4));
 
 }
 
 .auth-container .logofood {
     width: 366px;
+}
+
+.allTextBg{
+    background-color: #8391A1;
+    
 }
 
 /* //SideBar */
@@ -36,6 +41,22 @@
     background-repeat: no-repeat;
     height: 100vh; 
 }
-
 .notfound h2{color: #009247;}
 .notfound button{height: 4rem;}
+
+
+.recipeheader-container{
+background-color: #F0FFEF;
+
+}
+
+.recipeheader-container span{
+    color: #009247;
+}
+.green{
+    color: #009247;
+}
+
+.grey{
+    background-color: #E2E5EB;
+}

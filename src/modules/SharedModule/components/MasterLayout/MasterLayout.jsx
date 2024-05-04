@@ -7,7 +7,7 @@ import { Outlet } from "react-router-dom";
 export default function MasterLayout({ loginData }) {
   return (
     <div className="d-flex">
-      <div>
+      <div >
         <SideBar />
       </div>
 

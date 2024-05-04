@@ -8,23 +8,38 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import {  useForm } from "react-hook-form";
 import DeleteData from "../../../SharedModule/components/DeleteData/DeleteData";
+import { toast } from "react-toastify";
 
 export default function CategoriesList() {
-  
 
+  const showUpdateModal = (categoryObj) => {
+    setCatId(categoryObj.id);
+    setValue("name", categoryObj.name);
+    setShow("update-modal");
+  };
+  const showAddModal = () => {
+    setValue("name", null);
+    setShow("add-modal");
+  };
+  const [categoriesList, setCategoriesList] = useState([]);
+  const [value, setValue] = useState(""); 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
   const [catId,setCatId]=useState('');
-  // const [updateId, setUpdateId] = useState(null);
 
 const [showDelete,setShowDelete] = useState(false)
+
+
+
 const handleDeleteClose = () => setShowDelete(false);
+
 const handleDeleteShow = (id) => {
 setCatId(id)
 setShowDelete(true)
 }
-  const [categoriesList, setCategoriesList] = useState([]);
+ 
 
   const {
     register,
@@ -63,7 +78,7 @@ const onSubmit = async (data) => {
     );
     handleClose();
     getCategoriesList();
-    console.log(response);
+    // console.log(response);
   } catch (error) {
     console.error(error);
   }
@@ -82,6 +97,7 @@ const handleUpdateSubmit= async(data)=>{
 
     handleClose();
     getCategoriesList();
+    toast.success("Category Updated Successfully")
   } catch (error) {
     console.log(error);
   }
@@ -136,21 +152,22 @@ useEffect(() => {
         }
         imgUrl={headerimg}
       />
-          <Modal show={show} onHide={handleClose}>
+      {/* // ADD */}
+          <Modal show={show=="add-modal"} onHide={handleClose}>
               <Modal.Header closeButton>
                 <Modal.Title>
                   <h2>Add Category</h2>
                 </Modal.Title>
               </Modal.Header>
               <Modal.Body>
-              
-                <form onSubmit={handleSubmit(catId ? handleUpdateSubmit : onSubmit)}>
+              {/* {handleSubmit(catId ? handleUpdateSubmit : onSubmit)} */}
+                <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="input-group mb-3 ">
                     <input
                       type="text"
                       className="form-control"
                       placeholder="Category Name"
-                      {...register("name"|| '', {
+                      {...register("name", {
                         required: "Name is Required",
                       })}
                     />
@@ -164,6 +181,35 @@ useEffect(() => {
               </Modal.Body>
             </Modal>
 
+      {/* // Update */}
+      <Modal show={show=="update-modal"} onHide={handleClose}>
+              <Modal.Header closeButton>
+                <Modal.Title>
+                  <h2>Add Category</h2>
+                </Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+              
+                <form onSubmit={handleSubmit(handleUpdateSubmit)}>
+                  <div className="input-group mb-3 ">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Category Name"
+                      {...register("name", {
+                        required: "Name is Required",
+                      })}
+                    />
+                  </div>
+                  {errors.name && (
+                    <p className="alert alert-danger">{errors.name.message}</p>
+                  )}
+
+                  <button className="btn btn-success w-100 ">Save</button>
+                </form>
+              </Modal.Body>
+            </Modal>
+  {/* // Delete */}
             <Modal show={showDelete} onHide={handleDeleteClose}>
               <Modal.Header closeButton>
               
@@ -190,7 +236,7 @@ useEffect(() => {
           <div className="col-md-6 d-flex justify-content-end">
             <button      
               className="btn btn-success "
-              onClick={handleShow}
+              onClick={showAddModal}
             >
               Add New Category
             </button>
@@ -219,7 +265,7 @@ useEffect(() => {
                     >
                       <i 
                       className="fa fa-edit"
-                      onClick={handleShow}
+                      onClick={ ()=>showUpdateModal(item)}
                       ></i>
                 
              

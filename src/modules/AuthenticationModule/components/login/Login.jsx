@@ -10,11 +10,7 @@ import { toast } from "react-toastify";
 //   "password": "BarcaR100!"
 // }
 export default function Login({ saveLoginData }) {
-  //go to forgetpass
-  const handleAnchorClick = (event) => {
-    event.preventDefault();
-    navigate("/forgetpass");
-  };
+  
   // register ,handlesubmit,formState
   // data ,api-integration ,validation
   const navigate = useNavigate();
@@ -41,7 +37,12 @@ export default function Login({ saveLoginData }) {
       toast.error("Login Failed");
     }
   };
-
+  const goToForgetPass=()=>{
+    navigate('/forgetpass')
+  }
+  const goToRegister=()=>{
+    navigate('/register')
+  }
   return (
     <>
       <div className="auth-container ">
@@ -99,9 +100,9 @@ export default function Login({ saveLoginData }) {
                     </p>
                   )}
                   <div className="links d-flex justify-content-between my-3">
-                    <a>Register Now?</a>
-                    <a href="/forgetpass" onClick={handleAnchorClick}>
-                      Forgot Password ?
+                    <a onClick={goToRegister}> Register Now?</a>
+                    <a onClick={goToForgetPass}>
+                    <span className="green"> Forgot Password ?</span>
                     </a>
                   </div>
                   <button className="btn btn-success w-100">Login</button>
