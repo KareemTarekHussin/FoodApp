@@ -46,9 +46,9 @@ export default function Login({ saveLoginData }) {
   return (
     <>
       <div className="auth-container ">
-        <div className="container-fluid vh-100 bg-overlay ">
+        <div className="container-fluid vh-100 bg-overlay border rounded">
           <div className="row  vh-100 justify-content-center align-items-center">
-            <div className="col-md-6 bg-white p-3">
+            <div className="col-md-6 bg-white p-5 border rounded">
               <div className="text-center">
                 <img src={logofood} alt="" className="logofood" />
               </div>
@@ -83,7 +83,7 @@ export default function Login({ saveLoginData }) {
                       <i className="fa fa-key"></i>
                     </span>
                     <input
-                      type="text"
+                      type="password"
                       className="form-control"
                       placeholder="Enter Your Password"
                       {...register("password", {
@@ -100,7 +100,7 @@ export default function Login({ saveLoginData }) {
                     </p>
                   )}
                   <div className="links d-flex justify-content-between my-3">
-                    <a onClick={goToRegister}> Register Now?</a>
+                    <a onClick={goToRegister} className="primary"> Register Now?</a>
                     <a onClick={goToForgetPass}>
                     <span className="green"> Forgot Password ?</span>
                     </a>

@@ -8,6 +8,7 @@ export default function ChangePass() {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm();
 
@@ -87,7 +88,10 @@ export default function ChangePass() {
                     type="text"
                     className="form-control border-0 allTextBg"
                     placeholder="Confirm New Password"
-                    {...register("confirmNewPassword", { required: "Confirm New Password is Required" })}
+                    {...register("confirmNewPassword", { required: "Confirm New Password is Required",
+                    validate:(value)=>
+                      value===watch('newPassword')||"Passwords don't match"
+                     })}
                   />
                 </div>
                  {errors.confirmNewPassword && (

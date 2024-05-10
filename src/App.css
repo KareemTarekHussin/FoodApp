@@ -1,9 +1,15 @@
+body{font-family: "Montserrat",sans-serif;}
+
 .auth-container {
     background-image: url(./assets/images/auth-bg.png);
 }
 
 .bg-overlay {
-    background: linear-gradient(rgba(47, 140, 96, 0.4), rgba(0, 0, 0, 0.4));
+    background: linear-gradient(
+        to left,
+        rgba(0, 0, 0, 0.4),
+        rgba(47, 140, 51, 0.7)
+      );
 
 }
 
@@ -19,7 +25,7 @@
 /* //SideBar */
 .sidebar-container .ps-sidebar-container {
     background-color: #1F263E;
-    height: 100vh;
+  
     color: #fff;
 }
 
@@ -27,6 +33,9 @@
     background-color: rgba(47, 140, 96, 0.4);
 
 }
+/* .sidebar-container .ps-sidebar-root {
+    border-top-right-radius: 40px;
+  } */
 
 /* //Header */
 .header-container {
@@ -37,9 +46,10 @@
 /* notfound */
 .notfound{
     background-image: url(./assets/images/not-found-bg.png);
-    background-size: 100% 100%;
+    background-size: contain;
     background-repeat: no-repeat;
     height: 100vh; 
+    background-position: center right
 }
 .notfound h2{color: #009247;}
 .notfound button{height: 4rem;}
@@ -60,3 +70,8 @@ background-color: #F0FFEF;
 .grey{
     background-color: #E2E5EB;
 }
+.modal {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }

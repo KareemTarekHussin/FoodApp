@@ -18,6 +18,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import RecipeData from './modules/RecipesModule/components/RecipeData/RecipeData'
 import VerifyAccount from './modules/AuthenticationModule/components/VerifyAccount/VerifyAccount'
+import FavsList from './modules/FavsModule/components/FavsList/FavsList'
 
 
 
@@ -26,6 +27,7 @@ function App() {
   let saveLoginData= ()=>{
     let encodedToken=localStorage.getItem('token');
     let decodedToken=jwtDecode(encodedToken);
+    localStorage.setItem('userData',JSON.stringify(decodedToken))
     setLoginData(decodedToken);
   }
 
@@ -47,7 +49,8 @@ let routes = createBrowserRouter([
     {path:"recipes",element:<RecipesList/>},
     {path:"recipeData",element:<RecipeData/>},
     {path:"categories",element:<CategoriesList/>},
-    {path:"users",element:<UsersList/>}
+    {path:"users",element:<UsersList/>},
+    {path:"favs",element:<FavsList/>}
 
     ]
 

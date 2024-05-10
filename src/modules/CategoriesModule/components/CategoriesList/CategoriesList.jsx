@@ -61,6 +61,7 @@ const getCategoriesList = async () => {
     );
 
     setCategoriesList(response.data.data);
+    console.log(response.data.data);
   } catch (error) {
     console.log(error);
   }
@@ -126,6 +127,10 @@ useEffect(() => {
   getCategoriesList()
 },[]);
 
+// useEffect(() => {
+  
+// },[]);
+
 
 
 
@@ -182,7 +187,7 @@ useEffect(() => {
             </Modal>
 
       {/* // Update */}
-      <Modal show={show=="update-modal"} onHide={handleClose}>
+      <Modal className="modal"  show={show=="update-modal"} onHide={handleClose} >
               <Modal.Header closeButton>
                 <Modal.Title>
                   <h2>Add Category</h2>
@@ -243,9 +248,10 @@ useEffect(() => {
           </div>
         </div>
 
-        <Table striped bordered hover>
-          <thead>
+        <Table striped  hover>
+          <thead >
             <tr>
+              
               <th>#</th>
               <th>Category Name</th>
 
@@ -259,7 +265,7 @@ useEffect(() => {
                 <tr key={item.id}>
                   <td>{index + 1}</td>
                   <td>{item.name}</td>
-                  <td>{item.creationDate}</td>
+                  <td>{item.creationDate.slice(0,10)}</td>
                   <td>
                     <button className="btn"
                     >

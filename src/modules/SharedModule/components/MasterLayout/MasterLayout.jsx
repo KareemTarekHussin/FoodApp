@@ -8,7 +8,7 @@ export default function MasterLayout({ loginData }) {
   return (
     <div className="d-flex">
       <div >
-        <SideBar />
+        <SideBar loginData={loginData}/>
       </div>
 
       <div className="w-100">

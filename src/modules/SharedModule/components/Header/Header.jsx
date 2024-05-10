@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Header({ title, description, imgUrl }) {
   return (
-    <div className="container-fluid m-2 p-5 header-container">
+    <div className="container-fluid p-5 header-container">
       <div className="row align-items-center">
         <div className="col-md-8 ">
           <div className="content">

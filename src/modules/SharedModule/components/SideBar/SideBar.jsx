@@ -6,8 +6,9 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import logofood from "../../../../assets/images/logofood.png";
 import ChangePass from "../../../AuthenticationModule/components/changepass/ChangePass";
+import FavsList from "../../../FavsModule/components/FavsList/FavsList";
 
-export default function SideBar() {
+export default function SideBar({loginData}) {
   
   
 const [isCollapse,setIsCollapse]=useState(false)
@@ -32,11 +33,10 @@ const toggleCollapse = ()=>{
     <ChangePass 
     //TODO:export logout function as props
     />
-   
     </Modal.Body>
   </Modal>
-    <div className="sidebar-container  rounded-end">
-      <Sidebar  collapsed={isCollapse} className="border rounded-end vh-100">
+    <div className="sidebar-container   rounded-end ">
+      <Sidebar  collapsed={isCollapse} className="  vh-100">
         <Menu>
           <MenuItem active="ps-active"  onClick={toggleCollapse}  className="my-2">
             <img src={toggler} alt="" />
@@ -48,13 +48,15 @@ const toggleCollapse = ()=>{
           >
             Home
           </MenuItem>
-          <MenuItem
-           className="my-2"
-            icon={<i className="fa  fa-user-group" aria-hidden="true"></i>}
-            component={<Link to="/dashboard/users" />}
-          >
-            Users
-          </MenuItem>
+          {loginData?.userGroup=='SuperAdmin'? <MenuItem
+         
+         className="my-2"
+          icon={<i className="fa  fa-user-group" aria-hidden="true"></i>}
+          component={<Link to="/dashboard/users" />}
+        >
+          Users
+        </MenuItem>:''}
+         
           <MenuItem
            className="my-2"
             icon={<i className="fa fa-calendar" aria-hidden="true"></i>}
@@ -62,13 +64,27 @@ const toggleCollapse = ()=>{
           >
             Recipes
           </MenuItem>
-          <MenuItem
+
+          {loginData?.userGroup=='SystemUser'? <MenuItem
+         
+         className="my-2"
+          icon={<i className="fa  fa-user-group" aria-hidden="true"></i>}
+          component={<Link to="/dashboard/favs" />}
+        >
+         Favourites
+        </MenuItem>:''}
+
+
+
+          {loginData?.userGroup=='SuperAdmin'? <MenuItem
            className="my-2"
             icon={<i className="fa fa-calendar" aria-hidden="true"></i>}
             component={<Link to="/dashboard/categories" />}
           >
             Categories
-          </MenuItem>
+          </MenuItem>:''}
+
+         
           <MenuItem  onClick={handleShow} className="my-2" icon={<i className="fa fa-unlock" aria-hidden="true"></i>}>
              Change Password
              </MenuItem>

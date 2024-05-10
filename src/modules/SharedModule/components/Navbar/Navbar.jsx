@@ -1,13 +1,26 @@
 import React from "react";
-import avatar from "../../../../assets/images/avatar.png"
+import avatar from "../../../../assets/images/avatar.png";
 
 export default function Navbar({ loginData }) {
   // console.log(loginData);
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-light">
+        {/* search */}
         <div className="container-fluid">
-         
+          <form className="d-flex" role="search">
+            <input
+              className="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button className="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+        <div className="container-fluid">
           <button
             className="navbar-toggler"
             type="button"
@@ -28,7 +41,7 @@ export default function Navbar({ loginData }) {
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
-                 {loginData.userName}
+                  {loginData?.userName}
                 </a>
               </li>
             </ul>

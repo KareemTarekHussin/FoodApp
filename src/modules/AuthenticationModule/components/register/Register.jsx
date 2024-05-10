@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from 'react'
 import logofood from "../../../../assets/images/logofood.png";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -12,6 +12,7 @@ export default function register() {
   let {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm();
 
@@ -45,11 +46,15 @@ return formData
     }
   };
 
+  const goToLogIn = () => {
+    navigate("/login");
+  };
+
   return (
     <>
       <div className="container-fluid vh-100 bg-overlay ">
         <div className="row vh-100 justify-content-center align-items-center">
-          <div className="col-md-6 bg-white p-3">
+          <div className="col-md-6 bg-white p-5 border rounded">
             <div className="text-center">
               <img src={logofood} alt="" className="logofood" />
             </div>
@@ -109,7 +114,7 @@ return formData
                         <i className="fa fa-key"></i>
                       </span>
                       <input
-                        type="text"
+                        type="password"
                         className="form-control"
                         placeholder="Enter Your Password"
                         {...register("password", {
@@ -176,15 +181,18 @@ return formData
                         <i className="fa fa-key"></i>
                       </span>
                       <input
-                        type="text"
+                        type="password"
                         className="form-control"
                         placeholder="Confirm Password"
                         {...register("confirmPassword", {
                           required: "Confirm Password is required",
-                          pattern: {
-                            message: "Invalid Confirm Password",
-                          },
+                          validate:(value)=>
+                            value===watch('password')||"Passwords don't match"
+                          // pattern: {
+                          //   message: "Invalid Confirm Password",
+                          // },
                         })}
+                        
                       />
                     </div>
                     {errors.confirmPassword && (
@@ -197,12 +205,12 @@ return formData
 
                 <div className="links d-flex justify-content-end my-3">
                   <a
-                  // onClick={goToForgetPass}
+                  onClick={goToLogIn}
                   >
                     <span className="green"> Login Now ?</span>
                   </a>
                 </div>
-                <button className="btn btn-success w-100">Login</button>
+                <button className="btn btn-success w-100">Register</button>
               </form>
             </div>
           </div>
